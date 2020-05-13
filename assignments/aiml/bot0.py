@@ -6,9 +6,11 @@ kernel = aiml.Kernel()
 
 if os.path.isfile("bot_brain.brn"):
     kernel.bootstrap(brainFile = "bot_brain.brn")
+    print("Using old brain")
 else:
     kernel.bootstrap(learnFiles = "std-startup.xml", commands = "load aiml b")
     kernel.saveBrain("bot_brain.brn")
+    print("Using new brain")
 
 
 # Press CTRL-C to break this loop
@@ -20,4 +22,5 @@ while True:
         kernel.saveBrain("bot_brain.brn")
     else:
         bot_response = kernel.respond(message)
+        print(bot_response)
         # Do something with bot_response
