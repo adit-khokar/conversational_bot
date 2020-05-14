@@ -7,7 +7,7 @@ spell = Speller()
 # Create the kernel and learn AIML files
 kernel = aiml.Kernel()
 
-if os.path.isfile("bot_brain.brn") and retrain_model == "N":
+if os.path.isfile("bot_brain.brn"):
     kernel.bootstrap(brainFile = "bot_brain.brn")
     print("Using old brain")
 else:
